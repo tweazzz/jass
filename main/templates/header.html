@@ -1,0 +1,43 @@
+{% load static %}
+<div class="container">
+    <header>
+      <a href="{% url 'index' %}">
+        <div class="logo">
+          <img src="{% static 'images/Group 700.svg' %}" alt="" />
+        </div>
+    </a>
+      <a href="{% url 'directory' %}">
+        <div class="directory" style="margin-top: 9px">
+          <svg class="burgerbtn">
+            <use xlink:#burgerbtn></use>
+          </svg>
+          <!-- <img src="{% static 'images/Icon.svg' %}" width="16px" height="12px" alt="" /> -->
+          <span>DIRECTORY</span>
+        </div>
+      </a>
+      <div class="search" style="margin-top: 9px">
+        <img src="{% static 'images/search.svg' %}" alt="" />
+        <input type="text" placeholder="SEARCH" />
+      </div>
+      <div class="components" style="margin-top: 9px">
+        <img
+          src="{% static 'images/Component 1.svg' %}"
+          style="margin-right: 20px; cursor: pointer"
+          alt=""
+        />
+        {% if request.user.is_authenticated %}
+
+        <div class="usermenu">
+          <div class="usermenubtn"><img src="{% static 'images/icon-profile.svg' %}" style="cursor: pointer" alt=""/></div>
+          <div class="usermenu-content">
+            <a href="{% url 'user' %}">Profile</a> 
+            <a href="{% url 'logout' %}">Logout</a></div>
+          </div>
+        </div>
+        {% else %}
+        <a href="{% url 'login' %}" style="display:inline-block;"><img src="{% static 'images/icon-profile.svg' %}" style="cursor: pointer" alt=""
+          /></a>
+          {% endif %}
+      </div>
+    </header>
+  </div>

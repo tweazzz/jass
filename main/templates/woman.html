@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+    <title>WOMAN</title>
+</head>
+<body>
+  {% include 'header.html' %}
+
+    <div style="margin:40px 0 23px 250px;"><a href="" style="font-weight: 400;font-size: 14px;line-height: 130%;color: #BBC2D0;">WOMAN > </a><a href="" style="font-weight: 500;
+        font-size: 14px;
+        line-height: 130%;
+        color: #000000;">DRESS</a></div>
+    <div style="margin-left:250px; font-weight: 600;font-size: 36px;line-height: 44px;color: #000000;">DRESS</div>
+
+    <div style="display: flex;">
+        <div class="filter">
+            <div>
+                <span style="font-weight: 600;font-size: 18px;line-height: 130%;color: #000000;">FILTER</span><br>
+
+                {% for category in view.get_category %}
+                    <div style="margin-top:25px; margin-bottom: 19px; width: 221px;">
+                        <input type="checkbox" checked id="checkbox" />
+                        <label for="checkbox"></label>
+                        <span style="margin-left:8px;">{{category.name}}</span>
+                    </div>
+                {% endfor %}
+
+            </div>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; width: 75%;">
+            {% for woman in women_list %}
+                <div style="margin: 0 0 0 29px; width: 23%;">
+                    <div class="favs">
+                        <div class="favs-item">
+                            <a href="/woman/{{woman.url}}">
+                                <img src="{{woman.image.url}}" width="238px" height="238px" alt="">
+                                <span class="favs-name" style="font-weight: 600;font-size: 16px;line-height: 20px;color: #000000;margin-top: 20px">{{woman.name}}</span>
+                                <span class="favs-price" style="font-weight: 700;font-size: 18px;line-height: 22px;color: #000000;margin-top: 30px">{{woman.price}} $</span>
+                                <a href="{% url 'checkout' %}"><button style="padding: 10px 20px;background: #565656;border: 1px solid #565656; color:#fff;width: 147px;
+                                font-weight: 600;font-size: 16px;line-height: 20px; margin:20px 0; cursor: pointer;">ADD TO BAG</button></a>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+
+
+        </div>
+            
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="{% static 'js/app.js' %}"></script>
+    <script src="{% static 'js/popup.js' %}"></script>
+    <script src="{% static 'js/hidepass.js' %}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="js/jquery.maskedinput.min.js"></script>
+    <script>
+      $(document).ready(function() {
+          $('.phone_num').mask("+7 (999)-999-99-99");
+      });
+    </script>
+</body>

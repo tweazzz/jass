@@ -1,0 +1,203 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+    />
+    <title>{{woman.name}}</title>
+  </head>
+  <body>
+    <!-- SPRITES -->
+    <div>
+    </div>
+    {% include 'header.html' %}
+      <div class="content_items">
+        <div class="content_inner">
+            <div class="content_img active" id="tab_1">
+                <div class="main_img">
+                    <img src="{{ woman.image.url }}" alt="" width="488px" height="488px">
+                </div>
+                <div class="main_2">
+                    <div class="main_photos"><img src="{{ woman.image.url }}" width="149px" height="149px" alt=""></div>
+                    <div class="main_photos"><img src="{{ woman.image.url }}" width="149px" height="149px" alt=""></div>
+                    <div class="main_photos"><img src="{{ woman.image.url }}" width="149px" height="149px" alt=""></div>
+                </div>
+            </div>
+
+        <div class="content_text">
+                  <div>
+                      <div class="item_info">
+                          <span style="font-weight: 600;font-size: 24px;line-height: 29px;margin-bottom:30px;">{{woman.name}}</span><br><br>
+                          <span style="font-weight: 700;font-size: 24px;line-height: 29px;">{{woman.price}} $</span>                        
+                      </div>
+                      <div class="changable">
+                          <p style="font-weight: 600;font-size: 16px;line-height: 130%;
+                          color: #BBC2D0;">COLOUR: BLACK</p>
+                          <div class="change-color">
+                              <div class="active" style="background: #000000;" data-tab="#tab_1"></div>
+                              <div style="background: #C3ECFA;" data-tab="#tab_2"></div>
+                              <div style="background: #FF4392;" data-tab="#tab_3"></div>
+                              <div style="border: 0.5px solid #000000;background:#FFF8EA;" data-tab="#tab_4"></div>
+                          </div>
+                          <p style="font-weight: 600;font-size: 16px;line-height: 130%;
+                          color: #BBC2D0; margin-top: 42px;">SIZE:</p>
+                          <div class="change-size">
+                              <div class="active"><span>XS</span></div>
+                              <div><span>S</span></div>
+                              <div><span>M</span></div>
+                              <div><span>L</span></div>
+                          </div>
+                          
+                          <button class="add_btn" type="submit">
+                              <div style="background: url('img/fi_shopping-cart.png'); width: 24px; height: 24px; margin-right: 16px;"></div>
+                              <a href="{% url 'checkout' %}"><div style="height: 23px;font-weight: 600;
+                              font-size: 18px;
+                              line-height: 130%;padding-top:2px;">ADD TO BAG</div></a>
+                          </button>
+                      </div>
+                  </div>
+        </div>
+      </div>
+        
+        <div class="content_inner" style="margin-top:60px; flex-direction: column;">
+            <div style="display:flex; flex-direction: row;">
+              <div class="detail active">DETAILS
+              </div>
+              <div class="detail">SIZE GUIDE</div>
+            </div>
+            <div style="margin-top:32px;">
+              <span>Our Rhodes Poplin Tiered Cami Top exudes fun and flirty summer style, with all the frills. Our new summer staple boasts a square neckline framed<br>
+                by a pair of frilled straps, with its playfulness partnered by a floaty tiered hem. Its low backline is fastened by a single button, accompanied by a fun<br> 
+                keyhole cut-out.</span>
+            </div>
+
+            <div>
+              <div style="font-weight: 600;font-size: 18px;line-height: 26px; margin: 32px 0 16px 0;">MATERIAL & CARE:</div>
+              <div style="display:flex;flex-direction: column; font-weight: 500;font-size: 16px;line-height: 26px;">
+                <span>100% Cotton</span>
+                <span>Machine wash cold</span>
+                <span>Wash and dry inside out</span>
+                <span>Wash with similar colours</span>
+                <span>Dry away from direct sunlight</span>
+                <span>Iron on reverse side</span>
+              </div>
+            </div>
+
+            <div style="margin-top:60px;" >
+              <div style="font-weight: 600;font-size: 24px;line-height: 29px;color: #000000;
+              text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);">YOU MAY ALSO LIKE </div>
+            </div>
+            <div class="woman" style="margin: 0;width: 73%; margin-top:40px;">
+              <div class="container" id="1">
+                <div class="wrapperr">
+                  <div class="image-slider2 swiper-container" style="padding-left:0;">
+                    <div class="image-slider2__wrapper swiper-wrapper">
+                      <div class="image-slider2__slide swiper-slide">
+                        <a href="">
+                          <div class="image-slider2__image">
+                            <img src="img/woman/Frame 352-1.png" alt="Картинка" />
+                            <p>COTTON HERRINGBONE <br />CHORE OVERSHIRT</p>
+                          </div>
+                        </a>
+                      </div>
+                      <div class="image-slider2__slide swiper-slide">
+                        <a href="">
+                          <div class="image-slider2__image">
+                            <img src="img/woman/Frame 352-2.png" alt="Картинка" />
+                            <p>
+                              COTTON HERRINGBONE<br />
+                              CHORE OVERSHIRT
+                            </p>
+                          </div>
+                        </a>
+                      </div>
+                      <div class="image-slider__slide swiper-slide">
+                        <a href="">
+                          <div class="image-slider2__image">
+                            <img src="img/woman/Frame 352-3.png" alt="Картинка" />
+                            <p>
+                              COTTON HERRINGBONE<br />
+                              CHORE OVERSHIRT
+                            </p>
+                          </div>
+                        </a>
+                      </div>
+                      <div class="image-slider2__slide swiper-slide">
+                        <a href="">
+                          <div class="image-slider2__image">
+                            <img src="img/woman/Frame 352.png" alt="Картинка" />
+                            <p>COTTON HERRINGBONE <br />CHORE OVERSHIRT</p>
+                          </div>
+                        </a>
+                      </div>
+                      <div class="image-slider2__slide swiper-slide">
+                        <a href="">
+                          <div class="image-slider2__image">
+                            <img src="img/woman/Frame 352-1.png" alt="Картинка" />
+                            <p>COTTON HERRINGBONE <br />CHORE OVERSHIRT</p>
+                          </div>
+                        </a>
+                      </div>
+                      <div class="image-slider2__slide swiper-slide">
+                        <a href="">
+                          <div class="image-slider2__image">
+                            <img src="img/woman/Frame 352-2.png" alt="Картинка" />
+                            <p>
+                              COTTON HERRINGBONE<br />
+                              CHORE OVERSHIRT
+                            </p>
+                          </div>
+                        </a>
+                      </div>
+                      <div class="image-slider__slide swiper-slide">
+                        <a href="">
+                          <div class="image-slider2__image">
+                            <img src="img/woman/Frame 352-3.png" alt="Картинка" />
+                            <p>
+                              COTTON HERRINGBONE<br />
+                              CHORE OVERSHIRT
+                            </p>
+                          </div>
+                        </a>
+                      </div>
+                      <div class="image-slider2__slide swiper-slide">
+                        <a href="">
+                          <div class="image-slider2__image">
+                            <img src="img/woman/Frame 352.png" alt="Картинка" />
+                            <p>COTTON HERRINGBONE <br />CHORE OVERSHIRT</p>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    {% include 'footer.html' %}
+
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="{% static 'js/app.js' %}"></script>
+    <script src="{% static 'js/tabs.js' %}"></script>
+    <script src="{% static 'js/popup.js' %}"></script>
+    <script src="{% static 'js/hidepass.js' %}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="js/jquery.maskedinput.min.js"></script>
+    <script>
+      $(document).ready(function() {
+          $('.phone_num').mask("+7 (999)-999-99-99");
+      });
+    </script>
+  </body>
+</html>

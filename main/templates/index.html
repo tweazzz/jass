@@ -1,0 +1,299 @@
+﻿{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+    />
+    <title>Index</title>
+  </head>
+  <body>
+    <!-- SPRITES -->
+    <div>
+      <svg style="display:none;">
+        <symbol id="logo" viewBox="0 0 163 52">
+          <g>
+              <line x1="0.25" y1="11" x2="0.25" y2="52" stroke="black" stroke-width="0.5"/>
+              <line y1="51.75" x2="162" y2="51.75" stroke="black" stroke-width="0.5"/>
+              <path d="M162.25 11L162.25 52.0001" stroke="black" stroke-width="0.5"/>
+              <path d="M0 11H61" stroke="black" stroke-width="0.5"/>
+              <path d="M101 11.2424L162.5 11.2424" stroke="black" stroke-width="0.5"/>
+              <rect x="69" width="25" height="23" fill="url(#pattern0)"/>
+              <defs>
+              <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+              <use xlink:href="#image0_801_2048" transform="matrix(0.00390625 0 0 0.00424592 0 -0.0434783)"/>
+              </pattern>
+              <image id="image0_801_2048" width="256" height="256" xlink:href="data:image/png;base64,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"/>
+              </defs>
+
+        </g>
+        </symbol>
+      </svg>
+      <svg style="display:none;">
+        <symbol id="burgerbtn" viewBox="0 0 17 12">
+          <g>
+            <path d="M0.5 1C0.5 0.447715 0.947715 0 1.5 0H15.5C16.0523 0 16.5 0.447715 16.5 1C16.5 1.55228 16.0523 2 15.5 2H1.5C0.947715 2 0.5 1.55228 0.5 1ZM0.5 6C0.5 5.44772 0.947715 5 1.5 5H15.5C16.0523 5 16.5 5.44772 16.5 6C16.5 6.55228 16.0523 7 15.5 7H1.5C0.947715 7 0.5 6.55228 0.5 6ZM0.5 11C0.5 10.4477 0.947715 10 1.5 10H15.5C16.0523 10 16.5 10.4477 16.5 11C16.5 11.5523 16.0523 12 15.5 12H1.5C0.947715 12 0.5 11.5523 0.5 11Z" fill="#565656"/>
+          </g>
+        </symbol>
+      </svg>
+      <svg style="display:none;">
+        <symbol id="instagram" viewBox="0 0 33 34">
+          <g>
+            <path d="M13 18C15.7614 18 18 15.7614 18 13C18 10.2386 15.7614 8 13 8C10.2386 8 8 10.2386 8 13C8 15.7614 10.2386 18 13 18Z" stroke="white" stroke-width="2" stroke-miterlimit="10"/>
+            <path d="M18.5 1.5H7.5C4.18629 1.5 1.5 4.18629 1.5 7.5V18.5C1.5 21.8137 4.18629 24.5 7.5 24.5H18.5C21.8137 24.5 24.5 21.8137 24.5 18.5V7.5C24.5 4.18629 21.8137 1.5 18.5 1.5Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M19.5 8C20.3284 8 21 7.32843 21 6.5C21 5.67157 20.3284 5 19.5 5C18.6716 5 18 5.67157 18 6.5C18 7.32843 18.6716 8 19.5 8Z" stroke="white"/>
+          </g>
+        </symbol>
+      </svg>
+      <svg style="display:none;">
+        <symbol id="twitter" viewBox="0 0 33 34">
+          <g>
+            <path d="M30.0007 7.58268C28.912 9.14125 27.5538 10.4929 25.9899 11.5739L25.9899 11.5739C25.891 14.3077 25.093 16.9706 23.672 19.3083C22.2511 21.6459 20.2547 23.5804 17.8734 24.9269C15.4921 26.2735 12.8054 26.9872 10.0698 27C7.3342 27.0127 4.64098 26.324 2.24725 24.9997L2.24807 24.9982C5.37387 24.9549 8.41777 23.9924 11.0002 22.2307L11.0001 22.2308C8.23571 20.3467 6.13028 17.6447 4.97896 14.5037C3.82764 11.3627 3.68817 7.94011 4.58008 4.71582L4.58004 4.71585C5.85749 6.68317 7.55194 8.34551 9.54334 9.5851C11.5347 10.8247 13.7744 11.6112 16.1036 11.8889L16.1032 11.889C15.8579 10.7197 16.0393 9.50132 16.6145 8.45423C17.1898 7.40714 18.1208 6.60056 19.2392 6.18046C20.3576 5.76037 21.5895 5.75452 22.7118 6.16397C23.8341 6.57341 24.7728 7.37111 25.358 8.41269L25.358 8.41324C26.938 8.36609 28.5024 8.08623 30.0007 7.58268" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </g>
+        </symbol>
+      </svg>
+      <svg style="display:none;">
+        <symbol id="facebook" viewBox="0 0 33 34">
+          <g>
+            <path d="M16 25C22.6274 25 28 19.6274 28 13C28 6.37258 22.6274 1 16 1C9.37258 1 4 6.37258 4 13C4 19.6274 9.37258 25 16 25Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M21 7H19C18.2044 7 17.4413 7.31607 16.8787 7.87868C16.3161 8.44129 16 9.20435 16 10V24" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M12 13H20" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </g>
+        </symbol>
+      </svg>
+      <svg style="display:none;">
+        <symbol id="email" viewBox="0 0 24 24">
+          <g>
+            <path d="M2 6C2 4.89543 2.89543 4 4 4H20C21.1046 4 22 4.89543 22 6V18C22 19.1046 21.1046 20 20 20H4C2.89543 20 2 19.1046 2 18V6ZM5.51859 6L12 11.6712L18.4814 6H5.51859ZM20 7.32877L12.6585 13.7526C12.2815 14.0825 11.7185 14.0825 11.3415 13.7526L4 7.32877V18H20V7.32877Z" fill="white"/>
+          </g>
+        </symbol>
+      </svg>
+      <svg style="display:none;">
+        <symbol id="call" viewBox="0 0 24 24">
+          <g>
+            <path stroke="white" d="M3.83301 4H8.32295L9.77016 7.61803L7.44528 9.16795C7.16708 9.35342 6.99998 9.66565 6.99998 10C7.00252 10.0936 6.99998 10.001 6.99998 10.001L6.99998 10.002L6.99999 10.0043L7.00002 10.0093L7.00017 10.0217C7.00032 10.0309 7.00057 10.0421 7.00099 10.0552C7.00184 10.0814 7.00337 10.1153 7.0061 10.1564C7.01158 10.2385 7.02189 10.3494 7.04128 10.4852C7.08004 10.7565 7.15526 11.1281 7.3013 11.5662C7.59453 12.4459 8.17071 13.5849 9.29288 14.7071C10.415 15.8293 11.554 16.4054 12.4338 16.6987C12.8719 16.8447 13.2435 16.9199 13.5148 16.9587C13.6505 16.9781 13.7615 16.9884 13.8436 16.9939C13.8847 16.9966 13.9186 16.9981 13.9448 16.999C13.9579 16.9994 13.9691 16.9997 13.9783 16.9998L13.9906 17L13.9957 17L13.9979 17L13.999 17C13.999 17 14.1106 16.9939 14 17C14.3788 17 14.725 16.786 14.8944 16.4472L15.5641 15.1078L20 15.8471V20.167C17.8889 20.4723 12.1874 20.7732 7.70709 16.2929C3.22679 11.8126 3.5277 6.1111 3.83301 4ZM9.07363 10.4861L10.8796 9.28213C11.6665 8.75751 11.9784 7.75338 11.6271 6.87525L10.1799 3.25722C9.87617 2.4979 9.14076 2 8.32295 2H3.78076C2.87225 2 2.01707 2.63116 1.86792 3.6169C1.52861 5.8595 1.06677 12.481 6.29288 17.7071C11.519 22.9332 18.1405 22.4714 20.3831 22.1321C21.3688 21.9829 22 21.1277 22 20.2192V15.8471C22 14.8694 21.2932 14.0351 20.3288 13.8743L15.8929 13.135C15.0268 12.9907 14.1679 13.4281 13.7753 14.2134L13.4288 14.9064C13.3199 14.8796 13.1983 14.8453 13.0662 14.8013C12.4459 14.5946 11.5849 14.1707 10.7071 13.2929C9.82925 12.4151 9.40543 11.5541 9.19867 10.9338C9.14279 10.7662 9.10257 10.6154 9.07363 10.4861Z" fill="#0D0D0D"/>
+          </g>
+        </symbol>
+      </svg>
+      <svg style="display:none;">
+        <symbol id="map" viewBox="0 0 24 24">
+          <g>
+            <path d="M6.68377 0.0513167C6.88904 -0.0171056 7.11096 -0.0171056 7.31623 0.0513167L13 1.94591L17.3675 0.490059C18.6626 0.0583717 20 1.02231 20 2.38743V14.2792C20 15.1401 19.4491 15.9044 18.6325 16.1766L13.3162 17.9487C13.111 18.0171 12.889 18.0171 12.6838 17.9487L7 16.0541L2.63246 17.5099C1.33739 17.9416 0 16.9777 0 15.6126V3.72076C0 2.8599 0.55086 2.09562 1.36754 1.82339L6.68377 0.0513167ZM8 14.2792L12 15.6126V3.72076L8 2.38743V14.2792ZM6 2.38743L2 3.72076V15.6126L6 14.2792V2.38743ZM14 3.72076V15.6126L18 14.2792V2.38743L14 3.72076Z" fill="white"/>
+          </g>
+        </symbol>
+      </svg>
+    </div>
+    {% include 'header.html' %}
+    <div class="container" id="1">
+      <div class="wrapperr">
+        <div class="image-slider swiper-container">
+          <div class="image-slider__wrapper swiper-wrapper">
+            <div class="image-slider__slide swiper-slide">
+              <div class="image-slider__image">
+                <img src="{% static 'images/1448067.webp' %}" alt="Картинка" />
+              </div>
+            </div>
+            <div class="image-slider__slide swiper-slide">
+              <div class="image-slider__image">
+                <img src="{% static 'images/1448067.webp' %}" alt="Картинка" />
+              </div>
+            </div>
+            <div class="image-slider__slide swiper-slide">
+              <div class="image-slider__image">
+                <img src="{% static 'images/1448067.webp' %}" alt="Картинка" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="swiper-custom-nav">
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-pagination"></div>
+        </div> -->
+      </div>
+    </div>
+      <div class="woman">
+        <div class="man_text">WOMAN</div>
+        <div class="container" id="1">
+          <div class="wrapperr">
+            <div class="image-slider2 swiper-container">
+              <div class="image-slider2__wrapper swiper-wrapper">
+                {% for woman in women_list %}
+                  <div class="image-slider2__slide swiper-slide">
+                    <a href="/woman/{{woman.url}}">
+                      <div class="image-slider2__image">
+                        <img src="{{woman.image.url}}" alt="Картинка" />
+                        <p>{{woman.name}}</p>
+                      </div>
+                    </a>
+                  </div>
+                {% endfor %}
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <div class="accessories">
+      <div class="man_text">ACCESSORIES</div>
+      <div class="container" id="1">
+        <div class="wrapperr">
+          <div class="image-slider2 swiper-container">
+            <div class="image-slider2__wrapper swiper-wrapper">
+              <div class="image-slider2__slide swiper-slide">
+                <a href="">
+                  <div class="image-slider2__image">
+                    <img src="{% static 'images/accessories/Frame 352-1.png' %}" alt="Картинка" />
+                    <p>COTTON HERRINGBONE <br />CHORE OVERSHIRT</p>
+                  </div>
+                </a>
+              </div>
+              <div class="image-slider2__slide swiper-slide">
+                <a href="">
+                  <div class="image-slider2__image">
+                    <img src="{% static 'images/accessories/Frame 352-2.png' %}" alt="Картинка" />
+                    <p>
+                      COTTON HERRINGBONE<br />
+                      CHORE OVERSHIRT
+                    </p>
+                  </div>
+                </a>
+              </div>
+              <div class="image-slider2__slide swiper-slide">
+                <a href="">
+                  <div class="image-slider2__image">
+                    <img src="{% static 'images/accessories/Frame 352-3.png' %}" alt="Картинка" />
+                    <p>
+                      COTTON HERRINGBONE<br />
+                      CHORE OVERSHIRT
+                    </p>
+                  </div>
+                </a>
+              </div>
+              <div class="image-slider2__slide swiper-slide">
+                <a href="">
+                  <div class="image-slider2__image">
+                    <img src="{% static 'images/accessories/Frame 352.png' %}" alt="Картинка" />
+                    <p>COTTON HERRINGBONE <br />CHORE OVERSHIRT</p>
+                  </div>
+                </a>
+              </div>
+              <div class="image-slider2__slide swiper-slide">
+                <a href="">
+                  <div class="image-slider2__image">
+                    <img src="{% static 'images/accessories/Frame 352-1.png' %}" alt="Картинка" />
+                    <p>COTTON HERRINGBONE <br />CHORE OVERSHIRT</p>
+                  </div>
+                </a>
+              </div>
+              <div class="image-slider2__slide swiper-slide">
+                <a href="">
+                  <div class="image-slider2__image">
+                    <img src="{% static 'images/accessories/Frame 352-2.png' %}" alt="Картинка" />
+                    <p>
+                      COTTON HERRINGBONE<br />
+                      CHORE OVERSHIRT
+                    </p>
+                  </div>
+                </a>
+              </div>
+              <div class="image-slider2__slide swiper-slide">
+                <a href="">
+                  <div class="image-slider2__image">
+                    <img src="{% static 'images/accessories/Frame 352-3.png' %}" alt="Картинка" />
+                    <p>
+                      COTTON HERRINGBONE<br />
+                      CHORE OVERSHIRT
+                    </p>
+                  </div>
+                </a>
+              </div>
+              <div class="image-slider2__slide swiper-slide">
+                <a href="">
+                  <div class="image-slider2__image">
+                    <img src="{% static 'images/accessories/Frame 352.png' %}" alt="Картинка" />
+                    <p>COTTON HERRINGBONE <br />CHORE OVERSHIRT</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="swiper-custom-nav">
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div> -->
+      </div>
+    </div>
+
+    <div class="tz">
+      <div class="tz1">
+        <img src="" alt="">
+      </div>
+      <div class="tz2">
+        <span>Jass</span>
+        <p style="padding-top: 20px">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi
+          quod minima distinctio aut explicabo, architecto aperiam ipsum quis
+          numquam et doloribus assumenda ut esse quaerat sapiente praesentium
+          officiis molestiae placeat nemo quidem, dolor, laboriosam cupiditate.
+        </p>
+        <p style="padding-top: 20px">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi
+          quod minima distinctio aut explicabo, architecto aperiam ipsum quis
+          numquam et doloribus assumenda ut esse quaerat sapiente praesentium
+          officiis molestiae placeat nemo quidem, dolor, laboriosam cupiditate.
+        </p>
+        <p style="padding-top: 20px">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi
+          quod minima distinctio aut explicabo, architecto aperiam ipsum quis
+          numquam et doloribus assumenda ut esse quaerat sapiente praesentium
+          officiis molestiae placeat nemo quidem, dolor, laboriosam cupiditate.
+        </p>
+      </div>
+    </div>
+    <div class="social_media">
+      <div class="social_content" >
+          <div style="width: 180px; height: 180px; margin:40px 8px 0 0;"><img src="{% static 'images/brands/Bershka-Logo 1.png' %}" alt=""></div>
+          <div style="width: 200px; height: 200px; margin:30px 22px 0 0;"><img src="{% static 'images/brands/Love-Republic-Logo 1.png' %}" alt=""></div>
+          <div style="width: 220px; height: 220px; margin:23px 33px 0 0;"><img src="{% static 'images/brands/1024px-Zara_Logo 1.png' %}" alt=""></div>
+          <div style="width: 220px; height: 220px; margin:23px 23px 0 0;"><img src="{% static 'images/brands/585990604f6ae202fedf28d3 1.png' %}" alt=""></div>
+          <div style="width: 200px; height: 200px; margin:30px 8px 0 0;"><img src="{% static 'images/brands/5a1acaa8f65d84088faf1394 1.png' %}" alt=""></div>
+          <div style="width: 180px; height: 180px; margin:40px 0px 0 0;"><img src="{% static 'images/brands/5a1aca8bf65d84088faf1392 1.png' %}" alt=""></div>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <img src="{% static 'images/brands/349228 1.png' %}" width="44px" height="44px" alt="">
+        </div>
+        <div class="card">
+          <img src="{% static 'images/brands/Mastercard-logo 1.png' %}" width="44px" height="44px" alt="">
+        </div>
+        <div class="card">
+          <img src="{% static 'images/brands/Paypal_2014_logo 1.png' %}" width="44px" height="44px" alt="">
+        </div>
+        <div class="card">
+          <img src="{% static 'images/brands/Visa_Logo 1.png' %}" width="74px" height="44px" alt="">
+        </div>
+      </div>
+    </div>
+    {% include 'footer.html' %}
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="{% static 'js/app.js' %}"></script>
+    <script src="{% static 'js/popup.js' %}"></script>
+    <script src="{% static 'js/hidepass.js' %}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="js/jquery.maskedinput.min.js"></script>
+    <script>
+      $(document).ready(function() {
+          $('.phone_num').mask("+7 (999)-999-99-99");
+      });
+    </script>
+  </body>
+</html>

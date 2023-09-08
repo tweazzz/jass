@@ -1,0 +1,238 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <title>Account Page</title>
+</head>
+<body>
+    {% include 'header.html' %}
+
+    <div class="myacc_tabs">
+        <div class="tabs__nav">
+            <span class="tabs__nav-btn active" data-tab="#tab_1">MY ACCOUNT</span>
+            <span class="tabs__nav-btn" data-tab="#tab_2">MY ORDERS</span>
+            <span class="tabs__nav-btn" data-tab="#tab_3">FAVORITES</span>
+            <span class="tabs__nav-btn" data-tab="#tab_4">DELIVERY ADDRESS</span>
+            <span class="tabs__nav-btn" data-tab="#tab_5">RECEIPT NOTIFICATIONS</span>
+            <span class="tabs__nav-btn" data-tab="#tab_6">LOGOUT</span>
+        </div>
+        <div class="tabs__content active" id="tab_1">
+            <div class="tabs__item">
+                <span style="font-weight: 600;
+                font-size: 18px;
+                line-height: 22px;
+                color: #000000;
+                ">MY ACCOUNT</span>
+                <p class="" style="font-size: 25px;color:#6DA340">{{user}}</p>
+                <a class="profile-icon-link-container" href="">
+                    <img src="{{user.profile.img.url}}" width="90px" height="70px" alt="profile-icon">
+                </a>
+                <div class="pole">
+                    <span style="margin-bottom: 15px; font-size: 25px;">Name: </span>
+                    {{user.profile.name}}
+                </div>
+                <div class="pole">
+                    <span style="margin-bottom: 15px; font-size: 25px;">Email: </span>{{user.profile.email}}
+                </div>
+                <div class="pole">
+                    <span style="margin-bottom: 15px; font-size: 25px;">Phone Number</span>
+                    {{user.profile.phone_num }}
+                    
+                </div>
+            </div>
+           <div class="save-btn">
+                <button><a href="{% url 'profile' %}" style="color:#fff;">Edit</a></button>
+           </div>
+        </div>
+        <div class="tabs__content" id="tab_2">
+            <div class="tabs__item" style="width: 100%;">
+                <div style="font-weight: 400;font-size: 18px;line-height: 22px;color: #000000; cursor: pointer; border-bottom: 2px solid #C9C8D3;display: inline;">
+                    <span class="my_order active" data-order="#order_1" style="padding-right: 10px; margin-right: 5px;">Current Orders</span>
+                    <span class="my_order" data-order="#order_2" style="padding-right: 10px; margin-right: 5px;">All Orders</span>
+                </div>
+                <div class="order-item active" id="order_1">
+                    <!-- <div class="orders">
+                        <span>
+                            To place an order, go to the stores and add items <p> to the bagg</p>
+                        </span>
+                    </div>
+                    <div class="direct-btn">
+                    <button>Go To Directory</button>
+                    </div> -->
+                    <div class="order_info">
+                        <div class="in" style="display:flex; justify-content: space-between;">
+                            <span>Item NO.</span>
+                            <span>Price</span>
+                            <span>Quantity</span>
+                            <span>Date Of Registration</span>
+                            <span>Status</span>
+                        </div>
+                        <div class="orders">
+                            <div class="no" style="display: flex; flex-direction: column;">
+                                <span style="color:#000000;font-weight: 600;font-size: 18px;line-height: 22px;margin-bottom: 4px;">№0001</span>
+                                <img src="{% static 'images/woman/Frame 352.png' %}" width="80px" height="80px" alt="">
+                            </div>
+                            <div class="price"><span>32 000 KZT</span></div>
+                            <div class="quantity" style="width: 30px;"><span>1 pc</span></div>
+                            <div clas="data-register"><span>23 June 2022</span></div>
+                            <div class="status"><span>In Processing</span></div>
+                        </div>
+                        <div class="orders">
+                            <div class="no" style="display: flex; flex-direction: column;">
+                                <span style="color:#000000;font-weight: 600;font-size: 18px;line-height: 22px;margin-bottom: 4px;">№0001</span>
+                                <img src="{% static 'images/woman/Frame 352.png' %}" width="80px" height="80px" alt="">
+                            </div>
+                            <div class="price"><span>32 000 KZT</span></div>
+                            <div class="quantity" style="width: 30px;"><span>1 pc</span></div>
+                            <div clas="data-register"><span>23 June 2022</span></div>
+                            <div class="status"><span>In Processing</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="order-item" id="order_2">
+                    <div class="order_info">
+                        <div class="orders">
+                            <div class="no" style="display: flex; flex-direction: column;">
+                                <span style="color:#000000;font-weight: 600;font-size: 18px;line-height: 22px;margin-bottom: 4px;">№0001</span>
+                                <img src="{% static 'images/woman/Frame 352.png' %}" width="80px" height="80px" alt="">
+                            </div>
+                            <div class="price"><span>32 000 KZT</span></div>
+                            <div class="quantity" style="width: 30px;"><span>1 pc</span></div>
+                            <div clas="data-register"><span>23 June 2022</span></div>
+                            <div class="status"><span>In Processing</span></div>
+                        </div>
+                        <div class="orders">
+                            <div class="no" style="display: flex; flex-direction: column;">
+                                <span style="color:#000000;font-weight: 600;font-size: 18px;line-height: 22px;margin-bottom: 4px;">№0001</span>
+                                <img src="{% static 'images/woman/Frame 352.png' %}" width="80px" height="80px" alt="">
+                            </div>
+                            <div class="price"><span>32 000 KZT</span></div>
+                            <div class="quantity" style="width: 30px;"><span>1 pc</span></div>
+                            <div clas="data-register"><span>23 June 2022</span></div>
+                            <div class="status"><span>In Processing</span></div>
+                        </div>
+                        <div class="orders">
+                            <div class="no" style="display: flex; flex-direction: column;">
+                                <span style="color:#000000;font-weight: 600;font-size: 18px;line-height: 22px;margin-bottom: 4px;">№0002</span>
+                                <img src="{% static 'images/woman/Frame 352.png' %}" width="80px" height="80px" alt="">
+                            </div>
+                            <div class="price"><span>32 000 KZT</span></div>
+                            <div class="quantity" style="width: 30px;"><span>1 pc</span></div>
+                            <div clas="data-register"><span>23 June 2022</span></div>
+                            <div class="status"><span style="color: 
+                                #6DA340">Delivered</span></div>
+                        </div>
+                        <div class="orders">
+                            <div class="no" style="display: flex; flex-direction: column;">
+                                <span style="color:#000000;font-weight: 600;font-size: 18px;line-height: 22px;margin-bottom: 4px;">№0003</span>
+                                <img src="{% static 'images/woman/Frame 352.png' %}" width="80px" height="80px" alt="">
+                            </div>
+                            <div class="price"><span>32 000 KZT</span></div>
+                            <div class="quantity" style="width: 30px;"><span>1 pc</span></div>
+                            <div clas="data-register"><span>23 June 2022</span></div>
+                            <div class="status"><span style="color: 
+                                #F93232">Not Confirmed</span></div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        </div>
+        <div class="tabs__content" id="tab_3">
+            <div class="tabs__item">
+                <p style="font-weight: 600;
+                font-size: 18px;
+                line-height: 22px;
+                color: #000000; margin-right: 15px; cursor: pointer;
+                ">FAVORITES</p>
+                <div class="favs">
+                    <div class="favs-item">
+                        <img src="{% static 'images/woman/Frame 352.png' %}" width="238px" height="238px" alt="">
+                        <span class="favs-name" style="font-weight: 600;font-size: 16px;line-height: 20px;color: #000000;margin-top: 20px">TALLIN LEATHER CROC BAG</span>
+                        <span class="favs-price" style="font-weight: 700;font-size: 18px;line-height: 22px;color: #000000;margin-top: 30px">70 000 KZT</span>
+                        <button style="padding: 10px 20px;background: #565656;border: 1px solid #565656; color:#fff;width: 147px;
+                        font-weight: 600;font-size: 16px;line-height: 20px; margin:20px 0; cursor: pointer;">ADD TO BAG</button>
+                    </div>
+                </div>
+
+           
+        </div>
+        </div>
+        <div class="tabs__content" id="tab_4">
+            <div class="tabs__item">
+                <span style="font-weight: 600;
+                font-size: 18px;
+                line-height: 22px;
+                color: #000000; margin-right: 15px; cursor: pointer;
+                ">DELIVERY ADDRESS</span>
+                <div class="addresses">
+                    <div class="address-item">
+                        <span style="font-weight: 600;font-size: 18px;">HOME</span> <br>
+                        <span style="font-weight: 500;font-size: 16px;line-height: 20px;">Country: Kazakhstan <br>
+                            City: Almaty</span> <br>
+                        <span style="font-weight: 500;font-size: 16px;line-height: 20px;">
+                            Receiving Address: Abay st.,  52, Entrance 6, Apartment no. 205 <br>
+                            <br>Index: 0003
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="tabs__item">
+                <span style="font-weight: 600;
+                font-size: 18px;
+                line-height: 22px;
+                color: #000000; margin-right: 15px; cursor: pointer;
+                "></span>
+                <div class="addresses">
+                    <div class="address-item">
+                        <span style="font-weight: 600;font-size: 18px;">OFFICE</span> <br>
+                        <span style="font-weight: 500;font-size: 16px;line-height: 20px;">Country: Kazakhstan <br>
+                            City: Almaty</span> <br>
+                        <span style="font-weight: 500;font-size: 16px;line-height: 20px;">
+                            Receiving Address: Abay st.,  52, Entrance 6, Apartment no. 205 <br>
+                            <br>Index: 0003
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="tabs__content" id="tab_5">
+            <div class="tabs__item">
+                <p style="font-weight: 600;
+                font-size: 18px;
+                line-height: 22px;
+                color: #000000; margin-right: 15px; cursor: pointer;
+                ">RECEIPT NOTIFICATIONS</p>
+                <p style="margin-top:30px">Product Is In Stock</p>
+                <div class="favs">
+                    <div class="favs-item">
+                        <img src="{% static 'images/woman/Frame 352.png' %}" width="238px" height="238px" alt="">
+                        <span class="favs-name" style="font-weight: 600;font-size: 16px;line-height: 20px;color: #000000;margin-top: 20px">TALLIN LEATHER CROC BAG</span>
+                        <span class="favs-price" style="font-weight: 700;font-size: 18px;line-height: 22px;color: #000000;margin-top: 30px">70 000 KZT</span>
+                        <button style="padding: 10px 20px;background: #565656;border: 1px solid #565656; color:#fff;width: 147px;
+                        font-weight: 600;font-size: 16px;line-height: 20px; margin:20px 0; cursor: pointer;">ADD TO BAG</button>
+                    </div>
+                </div>
+
+           
+        </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+        <script src="{% static 'js/app.js' %}"></script>
+        <script src="{% static 'js/tabs.js' %}"></script>
+        <script src="{% static 'js/popup.js' %}"></script>
+        <script src="{% static 'js/hidepass.js' %}"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+        <script src="{% static 'js/maskedinput.min.js' %}"></script>
+        <script>
+          $(document).ready(function() {
+              $('.phone_num').mask("+7 (999)-999-99-99");
+          });
+        </script>
+</body>
+</html>
